@@ -22,6 +22,9 @@ endif()
 
 set(NAM_DEPS_PATH "${CMAKE_CURRENT_SOURCE_DIR}/Dependencies")
 
+# Explicitly tell CMake where Eigen is
+include_directories(${NAM_DEPS_PATH}/eigen)
+
 # Add a shared library target for libNAM.so
 add_library(NAM SHARED
     NAM/activations.cpp
