@@ -27,7 +27,7 @@ include_directories(${NAM_DEPS_PATH}/eigen)
 include_directories(${NAM_DEPS_PATH}/nlohmann)
 
 # Add a shared library target for libNAM.so
-add_library(NAM SHARED
+add_library(NAM STATIC
     NAM/activations.cpp
     NAM/convnet.cpp
     NAM/dsp.cpp
