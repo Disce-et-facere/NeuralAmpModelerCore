@@ -26,7 +26,7 @@ set(NAM_DEPS_PATH "${CMAKE_CURRENT_SOURCE_DIR}/Dependencies")
 include_directories(${NAM_DEPS_PATH}/eigen)
 include_directories(${NAM_DEPS_PATH}/nlohmann)
 
-# Add a shared library target for libNAM.so
+# Add a shared library target for libNAM.a
 add_library(NAM STATIC
     NAM/activations.cpp
     NAM/convnet.cpp
@@ -36,13 +36,7 @@ add_library(NAM STATIC
     NAM/util.cpp
 )
 
-target_include_directories(NAM PRIVATE ${CMAKE_SOURCE_DIR}/NAM)
-target_link_libraries(NAM PRIVATE stdc++fs)
-
+target_include_directories(NAM PUBLIC ${CMAKE_SOURCE_DIR}/NAM)
+target_compile_options(NAM PRIVATE -stdlib=libc++)
+target_link_options(NAM PRIVATE -stdlib=libc++)
 set_target_properties(NAM PROPERTIES OUTPUT_NAME "NAM")
-
-# Ensure the shared library is built
-install(TARGETS NAM LIBRARY DESTINATION /usr/local/lib)
-
-# Build tools as usual
-add_subdirectory(tools)
