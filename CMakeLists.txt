@@ -33,6 +33,7 @@ add_library(NAM STATIC
     NAM/get_dsp.cpp
     NAM/lstm.cpp
     NAM/util.cpp
+    NAM/wavenet.cpp
 )
 
 target_include_directories(NAM PUBLIC ${CMAKE_SOURCE_DIR}/NAM)
