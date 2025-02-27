@@ -37,4 +37,5 @@ add_library(NAM STATIC
 )
 
 target_include_directories(NAM PUBLIC ${CMAKE_SOURCE_DIR}/NAM)
+target_compile_options(NAM PRIVATE -fPIC)
 set_target_properties(NAM PROPERTIES OUTPUT_NAME "NAM")
